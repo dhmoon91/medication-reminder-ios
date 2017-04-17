@@ -9,20 +9,36 @@
 /* Begin PBXBuildFile section */
 		4B5284162C3FCF41813EFE74 /* Pods_medication_reminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D99A76BCD6251483082C59DD /* Pods_medication_reminder.framework */; };
 		5B485DE01E7C753D0013B925 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B485DDF1E7C753D0013B925 /* AppDelegate.swift */; };
-		5B485DE21E7C753D0013B925 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B485DE11E7C753D0013B925 /* ViewController.swift */; };
-		5B485DE51E7C753D0013B925 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B485DE31E7C753D0013B925 /* Main.storyboard */; };
 		5B485DE71E7C753D0013B925 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B485DE61E7C753D0013B925 /* Assets.xcassets */; };
 		5B485DEA1E7C753D0013B925 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B485DE81E7C753D0013B925 /* LaunchScreen.storyboard */; };
+		D3177DC91E9F61A300531EEE /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = D3177DC81E9F61A300531EEE /* test.json */; };
+		D3177DD01E9F62DF00531EEE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177DCC1E9F62DF00531EEE /* TabBarController.swift */; };
+		D3177DD11E9F62DF00531EEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177DCD1E9F62DF00531EEE /* ViewController.swift */; };
+		D3177DD71EA1582500531EEE /* calCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177DD61EA1582500531EEE /* calCell.swift */; };
+		D3177DFE1EA1FB7A00531EEE /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3177DFB1EA1FB7A00531EEE /* Calendar.storyboard */; };
+		D3177E011EA1FC5400531EEE /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177E001EA1FC5400531EEE /* CalendarViewController.swift */; };
+		D3177E061EA1FF2500531EEE /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177E051EA1FF2500531EEE /* extension.swift */; };
+		D3177E081EA4159B00531EEE /* MissedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177E071EA4159B00531EEE /* MissedViewController.swift */; };
+		D3177E0A1EA41A2E00531EEE /* GlobalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177E091EA41A2E00531EEE /* GlobalModel.swift */; };
+		D3177E0C1EA429F000531EEE /* DateMedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177E0B1EA429F000531EEE /* DateMedController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5B485DDC1E7C753D0013B925 /* medication-reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "medication-reminder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B485DDF1E7C753D0013B925 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5B485DE11E7C753D0013B925 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5B485DE41E7C753D0013B925 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B485DE61E7C753D0013B925 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B485DE91E7C753D0013B925 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B485DEB1E7C753D0013B925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3177DC81E9F61A300531EEE /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
+		D3177DCC1E9F62DF00531EEE /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = ../../coffeeteam/coffeeteam/TabBarController.swift; sourceTree = "<group>"; };
+		D3177DCD1E9F62DF00531EEE /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../coffeeteam/coffeeteam/ViewController.swift; sourceTree = "<group>"; };
+		D3177DD61EA1582500531EEE /* calCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calCell.swift; sourceTree = "<group>"; };
+		D3177DFB1EA1FB7A00531EEE /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Calendar.storyboard; path = Calendar/Calendar.storyboard; sourceTree = "<group>"; };
+		D3177E001EA1FC5400531EEE /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = SOURCE_ROOT; };
+		D3177E051EA1FF2500531EEE /* extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		D3177E071EA4159B00531EEE /* MissedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissedViewController.swift; sourceTree = "<group>"; };
+		D3177E091EA41A2E00531EEE /* GlobalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalModel.swift; sourceTree = "<group>"; };
+		D3177E0B1EA429F000531EEE /* DateMedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateMedController.swift; path = Calendar/DateMedController.swift; sourceTree = "<group>"; };
 		D99A76BCD6251483082C59DD /* Pods_medication_reminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_medication_reminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2C37ACF78442DAD71F24594 /* Pods-medication-reminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-medication-reminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-medication-reminder/Pods-medication-reminder.release.xcconfig"; sourceTree = "<group>"; };
 		FA4E7FE19B323FB4F24F169D /* Pods-medication-reminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-medication-reminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-medication-reminder/Pods-medication-reminder.debug.xcconfig"; sourceTree = "<group>"; };
@@ -61,12 +77,14 @@
 		5B485DDE1E7C753D0013B925 /* medication-reminder */ = {
 			isa = PBXGroup;
 			children = (
-				5B485DDF1E7C753D0013B925 /* AppDelegate.swift */,
-				5B485DE11E7C753D0013B925 /* ViewController.swift */,
-				5B485DE31E7C753D0013B925 /* Main.storyboard */,
-				5B485DE61E7C753D0013B925 /* Assets.xcassets */,
-				5B485DE81E7C753D0013B925 /* LaunchScreen.storyboard */,
-				5B485DEB1E7C753D0013B925 /* Info.plist */,
+				D3177DCC1E9F62DF00531EEE /* TabBarController.swift */,
+				D3177DCD1E9F62DF00531EEE /* ViewController.swift */,
+				D3177E071EA4159B00531EEE /* MissedViewController.swift */,
+				D3177E041EA1FCB300531EEE /* etc */,
+				D3177E021EA1FC8800531EEE /* Calendar */,
+				D3177E051EA1FF2500531EEE /* extension.swift */,
+				D3177E091EA41A2E00531EEE /* GlobalModel.swift */,
+				D3177E031EA1FC9900531EEE /* testData */,
 			);
 			path = "medication-reminder";
 			sourceTree = "<group>";
@@ -86,6 +104,36 @@
 				D99A76BCD6251483082C59DD /* Pods_medication_reminder.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D3177E021EA1FC8800531EEE /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				D3177DFB1EA1FB7A00531EEE /* Calendar.storyboard */,
+				D3177E001EA1FC5400531EEE /* CalendarViewController.swift */,
+				D3177E0B1EA429F000531EEE /* DateMedController.swift */,
+				D3177DD61EA1582500531EEE /* calCell.swift */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+		D3177E031EA1FC9900531EEE /* testData */ = {
+			isa = PBXGroup;
+			children = (
+				D3177DC81E9F61A300531EEE /* test.json */,
+			);
+			name = testData;
+			sourceTree = "<group>";
+		};
+		D3177E041EA1FCB300531EEE /* etc */ = {
+			isa = PBXGroup;
+			children = (
+				5B485DDF1E7C753D0013B925 /* AppDelegate.swift */,
+				5B485DE61E7C753D0013B925 /* Assets.xcassets */,
+				5B485DE81E7C753D0013B925 /* LaunchScreen.storyboard */,
+				5B485DEB1E7C753D0013B925 /* Info.plist */,
+			);
+			name = etc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,8 +199,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B485DEA1E7C753D0013B925 /* LaunchScreen.storyboard in Resources */,
+				D3177DC91E9F61A300531EEE /* test.json in Resources */,
+				D3177DFE1EA1FB7A00531EEE /* Calendar.storyboard in Resources */,
 				5B485DE71E7C753D0013B925 /* Assets.xcassets in Resources */,
-				5B485DE51E7C753D0013B925 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,7 +260,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B485DE21E7C753D0013B925 /* ViewController.swift in Sources */,
+				D3177E081EA4159B00531EEE /* MissedViewController.swift in Sources */,
+				D3177E0C1EA429F000531EEE /* DateMedController.swift in Sources */,
+				D3177E011EA1FC5400531EEE /* CalendarViewController.swift in Sources */,
+				D3177DD71EA1582500531EEE /* calCell.swift in Sources */,
+				D3177DD11E9F62DF00531EEE /* ViewController.swift in Sources */,
+				D3177E061EA1FF2500531EEE /* extension.swift in Sources */,
+				D3177DD01E9F62DF00531EEE /* TabBarController.swift in Sources */,
+				D3177E0A1EA41A2E00531EEE /* GlobalModel.swift in Sources */,
 				5B485DE01E7C753D0013B925 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,14 +275,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5B485DE31E7C753D0013B925 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5B485DE41E7C753D0013B925 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5B485DE81E7C753D0013B925 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -376,6 +424,7 @@
 				5B485DF01E7C753D0013B925 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

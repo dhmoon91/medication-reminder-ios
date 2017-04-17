@@ -7,16 +7,75 @@
 //
 
 import UIKit
+import UserNotifications
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    static let shared = { return UIApplication.shared.delegate as! AppDelegate }
+ 
+   
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (accepted, error) in
+            if !accepted{
+                print("NOTIFICATION ACCESS DENIED")
+            }
+        }
+        //let locale = TimeZone.init(abbreviation: "GMT")
+       // TimeZone.default = locale as! TimeZone
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        window?.rootViewController =  TabBarController()
+        
+        UINavigationBar.appearance().barTintColor = UIColor.themeColor
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
+        UITabBar.appearance().tintColor = UIColor.themeColor
+        
+        application.statusBarStyle = .lightContent
+        
+        //GETTING DATA
+        // let urlString = "http://10.0.9.135:9000/api/medications?start=04/13/2017&end=04/14/2017"
+        //if let url = URL(string: urlString)
+
+        if let path = Bundle.main.path(forResource: "test", ofType:"json")
+        {
+            do{
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+                // let data = try Data(contentsOf: url)
+                let jsonObj = JSON(data:data)
+                if jsonObj != JSON.null{
+                    //print("Jsondata: \(jsonObj)")
+                   
+                    for result in jsonObj.arrayValue {
+                        let id = result["_id"].stringValue
+                        let name = result["name"].stringValue
+                        let dosage = result["dosage"].stringValue
+                       
+                        let time = result["time"].stringValue
+                        //timeParsed will be used to set notification and ui
+                        let timeParsed = dateParse(forDate: time)
+                        //timeSimpleFormat will be used for Calendar to load proper data on specific day
+                        let timeSimpleFormat = dateParseSimpleFormat(forDate: time)
+                        let completed = result["completed"].boolValue
+                        let obj = ["_id": id,"name": name,"dosage": dosage,"time": time,"finalTime": timeParsed, "timeSimple": timeSimpleFormat, "completed": completed] as [String : Any]
+                        profiles.append(obj)
+                    }
+                }
+            } catch let error{
+                print(error.localizedDescription)
+            }
+        }
+
+        
         return true
+
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -41,6 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+   
 
 }
 

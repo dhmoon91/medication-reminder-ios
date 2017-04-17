@@ -4,5 +4,6 @@ use_frameworks!
 
 target 'medication-reminder' do
     pod 'Alamofire', '~> 4.0.1'
-    pod 'SwiftyJSON', '~> 3.1.1'
+    pod 'SwiftyJSON', '~> 3.1.1’
+    pod 'JTAppleCalendar', '~> 7.0'
 end
