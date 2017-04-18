@@ -17,8 +17,8 @@ If you would like to test the app using different data set, there seems to be a 
 can cause notifications to stack up and not launch.
 
 But the app should work for originally provided dataset and requirements. 
+==============================
 
-======================================================================
 5 minute prior to medication time, 'Completed button' will be shown with yellow background
 
 <img  src = "/screenshots/5before.png"  height="700" width="400" />
@@ -50,7 +50,7 @@ Completed tab will have specific time constraint when the button was clicked;
 
 
 Some Decisions I Made
-===========================================================
+==============================
 1) Getting Whole medication data when app launches.
 2) I added two other date datas to the root model meds;
 	First one is formatted date, to use later when setting timers, notifications, etc. 
