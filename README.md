@@ -16,7 +16,9 @@ open 'medication-reminder.xcworkspace' go to medication-reminder/etc/GlobalModel
 If you would like to test the app using different data set, there seems to be a bug from time to time where short time frame between medications (let say <1min) 
 can cause notifications to stack up and not launch.
 
-But the app should work for originally provided dataset and requirements. 
+But the app should work for originally provided dataset and requirements.
+
+Design & Flow
 ==============================
 
 5 minute prior to medication time, 'Completed button' will be shown with yellow background
