@@ -11,7 +11,7 @@ no need to pod install. pod files are included
 
 5 minute prior to medication time, 'Completed button' will be shown with yellow background
 
-<img  src = "/screenshots/5before.png" align="left" height="700" width="400" />
+<img  src = "/screenshots/5before.png"  height="700" width="400" />
 
 
 On medication time, there will be a chime sound notification sent and cell will be covered with reddish background
