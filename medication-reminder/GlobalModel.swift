@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 //******* DATAS *********//
+let localIp = "192.168.0.15"
 var tabbarCounter = 0
 
 struct Med {
@@ -28,14 +29,13 @@ struct CompletedMed {
     var name: String!
     var dosage: String!
     var time: Date! //Orginal date -> yyyy-MM-dd'T'HH:mm:ss.SSSZ
-   // var timeParsed: Date! //Parsed date to -> YYYY-MM-DD HH:mm:ss
-    //var timeSimple: String! //Simple string from date -> YYYY-MM-DD
+    var timeParsed: Date! //Parsed date to -> YYYY-MM-DD HH:mm:ss
     var timeClicked: String!
     var completed: Bool!
 }
 
 var meds = [Med]()
-var todayMeds = [Med]()
+//var todayMeds = [Med]()
 var completed = [CompletedMed]()
 var missed = [Med]()
 //***** DATAS END**********/////

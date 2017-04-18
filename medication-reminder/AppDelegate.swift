@@ -41,16 +41,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.statusBarStyle = .lightContent
         //copyFileToDirectory(fromPath: "/Sounds", fileName: "alarmStan.caf")
         //GETTING DATA
-        let localIp = "192.168.0.15"
+       
         let urlString = "http://\(localIp):9000/api/medications"
        
         var tempMed = Med()
-       // if let path = Bundle.main.path(forResource: "test", ofType:"json")
-        if let url = URL(string: urlString)
+       
+       // if let url = URL(string: urlString)
+        if let path = Bundle.main.path(forResource: "test", ofType:"json")
         {
             do{
-                //let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
-                 let data = try Data(contentsOf: url)
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+                 //let data = try Data(contentsOf: url)
                 let jsonObj = JSON(data:data)
                 if jsonObj != JSON.null{
                     //print("Jsondata: \(jsonObj)")

@@ -20,8 +20,8 @@ class CompletedController: UICollectionViewController, UICollectionViewDelegateF
         super.viewDidLoad()
         defaultLabel.text = "There are no Completed Medication so far"
         self.view.addSubview(defaultLabel)
-            view.addConstraintsWithFormat(format: "H:|-20-[v0]-|", views: defaultLabel )
-        view.addConstraintsWithFormat(format: "V:|-100-[v0]-|", views: defaultLabel )
+         view.addConstraintsWithFormat(format: "H:|-(<=20)-[v0]-|", views: defaultLabel )
+         view.addConstraintsWithFormat(format: "V:|-(<=20)-[v0]-|", views: defaultLabel )
         
         
         navigationItem.title = "Completed medication"
@@ -61,7 +61,7 @@ class CompletedController: UICollectionViewController, UICollectionViewDelegateF
     }
     //cell's size. fixed height
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 130)
+        return CGSize(width: view.frame.width, height: 80)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -76,18 +76,21 @@ class CompletedCell: UICollectionViewCell {
     var completed = CompletedMed() {
         didSet {
             if let name = completed.name {
-                //let fullName = name + " " + (profile?.lastName)!
-                let attributedText = NSMutableAttributedString(string: name, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
+                let attributedText = NSMutableAttributedString(string: name, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.themeColor])
                 
-                //set attrb for job title
                 if let dosage = completed.dosage {
                     attributedText.append(NSAttributedString(string: "\n\(dosage)", attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor(red: 155/255, green: 161/255, blue: 171/255, alpha:1) ] ))
-                    
                 }
                 nameLabel.attributedText = attributedText
             }
+            if let timeParseed = completed.timeParsed {
+                let string = dateParseForLabel(forDate: timeParseed)
+                dateLabel.text = string
+            }
             if let timeClicked = completed.timeClicked{
-                dateLabel.text = "Completed On: \(timeClicked)"
+                let attributedText = NSMutableAttributedString(string: "Completed On:", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor(red: 76/255, green: 175/255, blue: 43/255, alpha:1)])
+                 attributedText.append(NSAttributedString(string: "\n\(timeClicked)", attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor(red: 155/255, green: 161/255, blue: 171/255, alpha:1) ] ))
+                completeLabel.attributedText = attributedText
             }
         }
     }
@@ -103,12 +106,6 @@ class CompletedCell: UICollectionViewCell {
     }
     
     //init buttons, images, textview
-    let profileImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    } ()
     
     let nameLabel: UILabel = {
         var label = UILabel()
@@ -118,24 +115,28 @@ class CompletedCell: UICollectionViewCell {
     
     let dateLabel: UILabel = {
         var label = UILabel()
-        //label.numberOfLines = 2
         return label
     } ()
     
+    let completeLabel: UILabel = {
+        var label = UILabel()
+        label.numberOfLines = 2
+        return label
+    } ()
     
     
     func setupView() {
         backgroundColor = UIColor.white
         addSubview(nameLabel)
         addSubview(dateLabel)
+        addSubview(completeLabel)
+        
         //constraints for label
         addConstraintsWithFormat(format: "H:|-8-[v0]-8-|", views: nameLabel)
         addConstraintsWithFormat(format: "H:|-8-[v0]-8-|", views: dateLabel)
-      //  addConstraintsWithFormat(format: "V:|-12-[v0]", views: nameLabel)
+         addConstraintsWithFormat(format: "H:[v0]-10-|", views: completeLabel)
         
-          addConstraintsWithFormat(format: "V:|-12-[v0]-10-[v1]-|", views: nameLabel, dateLabel)
-        //addConstraintsWithFormat(format: "V:|-8-[v0(44)]-4-[v1(20)]", views: profileImageView, completeBtn)
-        
-        
+        addConstraintsWithFormat(format: "V:|-5-[v0]-5-[v1]", views: nameLabel, dateLabel)
+        addConstraintsWithFormat(format: "V:|-5-[v0]", views: completeLabel)
     }
 }
