@@ -14,21 +14,31 @@ no need to pod install. pod files are included
 <img  src = "/screenshots/5before.png"  height="700" width="400" />
 
 
-On medication time, there will be a chime sound notification sent and cell will be covered with reddish background
-![ScreenShot](/screenshots/ontime.png)
+On medication time, there will be a chime sound notification sent and cell will be covered with reddish background:
+
+<img  src = "/screenshots/ontime.png"  height="700" width="400" />
+
 
 5 minute after medication time, there will be annoying alarming notification sent and data will be sent to 'Missed' controller. 
 Missed tab will show badge to notify user that there are missed medication: 
-![ScreenShot](/screenshots/after1.png)
 
-And on Missed tab, it will be shown as: 
-![ScreenShot](/screenshots/after2.png)
+<img  src = "/screenshots/after1.png"  height="700" width="400" />
+
+
+And on Missed tab, it will be shown as:
+
+<img  src = "/screenshots/after2.png"  height="700" width="400" />
+
 
 If user has clicked on 'Complete' button before passing 5minute to medication time, 
 it will show alert view to double-confirm that user has done proper job and data will be sent to Completed tab
 
+
 Completed tab will have specific time constraint when the button was clicked;
-![ScreenShot](/screenshots/complete.png)
+
+<img  src = "/screenshots/complete.png"  height="700" width="400" />
+
+
 
 Medication Reminder Sample App
 ==============================
