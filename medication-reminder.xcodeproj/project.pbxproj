@@ -11,6 +11,8 @@
 		5B485DE01E7C753D0013B925 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B485DDF1E7C753D0013B925 /* AppDelegate.swift */; };
 		5B485DE71E7C753D0013B925 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B485DE61E7C753D0013B925 /* Assets.xcassets */; };
 		5B485DEA1E7C753D0013B925 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B485DE81E7C753D0013B925 /* LaunchScreen.storyboard */; };
+		D30EC3491EA4BD86001B1421 /* alarm.caf in Resources */ = {isa = PBXBuildFile; fileRef = D30EC3481EA4BD79001B1421 /* alarm.caf */; };
+		D30EC34B1EA4DD46001B1421 /* CompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EC34A1EA4DD46001B1421 /* CompletedViewController.swift */; };
 		D3177DC91E9F61A300531EEE /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = D3177DC81E9F61A300531EEE /* test.json */; };
 		D3177DD01E9F62DF00531EEE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177DCC1E9F62DF00531EEE /* TabBarController.swift */; };
 		D3177DD11E9F62DF00531EEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177DCD1E9F62DF00531EEE /* ViewController.swift */; };
@@ -29,6 +31,8 @@
 		5B485DE61E7C753D0013B925 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B485DE91E7C753D0013B925 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B485DEB1E7C753D0013B925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D30EC3481EA4BD79001B1421 /* alarm.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = alarm.caf; path = ../../alarm.caf; sourceTree = "<group>"; };
+		D30EC34A1EA4DD46001B1421 /* CompletedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedViewController.swift; sourceTree = "<group>"; };
 		D3177DC81E9F61A300531EEE /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		D3177DCC1E9F62DF00531EEE /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = ../../coffeeteam/coffeeteam/TabBarController.swift; sourceTree = "<group>"; };
 		D3177DCD1E9F62DF00531EEE /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../coffeeteam/coffeeteam/ViewController.swift; sourceTree = "<group>"; };
@@ -79,12 +83,10 @@
 			children = (
 				D3177DCC1E9F62DF00531EEE /* TabBarController.swift */,
 				D3177DCD1E9F62DF00531EEE /* ViewController.swift */,
+				D30EC34A1EA4DD46001B1421 /* CompletedViewController.swift */,
 				D3177E071EA4159B00531EEE /* MissedViewController.swift */,
-				D3177E041EA1FCB300531EEE /* etc */,
 				D3177E021EA1FC8800531EEE /* Calendar */,
-				D3177E051EA1FF2500531EEE /* extension.swift */,
-				D3177E091EA41A2E00531EEE /* GlobalModel.swift */,
-				D3177E031EA1FC9900531EEE /* testData */,
+				D3177E041EA1FCB300531EEE /* etc */,
 			);
 			path = "medication-reminder";
 			sourceTree = "<group>";
@@ -128,10 +130,14 @@
 		D3177E041EA1FCB300531EEE /* etc */ = {
 			isa = PBXGroup;
 			children = (
+				D3177E051EA1FF2500531EEE /* extension.swift */,
+				D3177E091EA41A2E00531EEE /* GlobalModel.swift */,
+				D30EC3481EA4BD79001B1421 /* alarm.caf */,
 				5B485DDF1E7C753D0013B925 /* AppDelegate.swift */,
 				5B485DE61E7C753D0013B925 /* Assets.xcassets */,
 				5B485DE81E7C753D0013B925 /* LaunchScreen.storyboard */,
 				5B485DEB1E7C753D0013B925 /* Info.plist */,
+				D3177E031EA1FC9900531EEE /* testData */,
 			);
 			name = etc;
 			sourceTree = "<group>";
@@ -171,6 +177,7 @@
 				TargetAttributes = {
 					5B485DDB1E7C753D0013B925 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 74R3QW9XZN;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -198,6 +205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D30EC3491EA4BD86001B1421 /* alarm.caf in Resources */,
 				5B485DEA1E7C753D0013B925 /* LaunchScreen.storyboard in Resources */,
 				D3177DC91E9F61A300531EEE /* test.json in Resources */,
 				D3177DFE1EA1FB7A00531EEE /* Calendar.storyboard in Resources */,
@@ -268,6 +276,7 @@
 				D3177E061EA1FF2500531EEE /* extension.swift in Sources */,
 				D3177DD01E9F62DF00531EEE /* TabBarController.swift in Sources */,
 				D3177E0A1EA41A2E00531EEE /* GlobalModel.swift in Sources */,
+				D30EC34B1EA4DD46001B1421 /* CompletedViewController.swift in Sources */,
 				5B485DE01E7C753D0013B925 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +393,7 @@
 			baseConfigurationReference = FA4E7FE19B323FB4F24F169D /* Pods-medication-reminder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 74R3QW9XZN;
 				INFOPLIST_FILE = "medication-reminder/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mavencare.medication-reminder";
@@ -397,6 +407,7 @@
 			baseConfigurationReference = F2C37ACF78442DAD71F24594 /* Pods-medication-reminder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 74R3QW9XZN;
 				INFOPLIST_FILE = "medication-reminder/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mavencare.medication-reminder";

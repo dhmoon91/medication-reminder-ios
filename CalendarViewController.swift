@@ -33,25 +33,12 @@ class CalendarViewController: UIViewController {
     func handleCelltextColor(view: JTAppleCell?, cellState: CellState){
         guard let validCell = view as? calCell else {return}
         
-        if cellState.isSelected{
-            validCell.dateLabel.textColor = UIColor.darkGray
-        }else {
+       
             if cellState.dateBelongsTo == .thisMonth{
                 validCell.dateLabel.textColor = UIColor.black
             }else{
                 validCell.dateLabel.textColor = UIColor.lightGray
             }
-            
-        }
-    }
-    
-    func handleCellSelected(view: JTAppleCell?, cellState: CellState){
-        guard let validCell = view as? calCell else {return}
-        if validCell.isSelected {
-            validCell.selectedView.isHidden = false
-        } else {
-            validCell.selectedView.isHidden = true
-        }
     }
     
     func setupViewsOfCalendar(from visibleDates: DateSegmentInfo){
@@ -71,7 +58,7 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
         formatter.timeZone = Calendar.current.timeZone
         formatter.locale = Calendar.current.locale
         
-        let startDate = formatter.date(from: "2017 01 01")!
+        let startDate = formatter.date(from: "2017 04 01")!
         let endDate = formatter.date(from: "2017 12 31")!
         let param = ConfigurationParameters(startDate: startDate, endDate: endDate)
         return param
@@ -82,52 +69,28 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalCell", for: indexPath) as! calCell
         cell.dateLabel.text = cellState.text
+        cell.selectedView.isHidden = true
+        let todaySimple = convertDateToSimple(date: Date())
+        let dateString = convertDateToSimple(date:date)
+
+        //Highlight today
+        if (todaySimple == dateString){
+            cell.selectedView.isHidden = false
+        }
         
-        handleCellSelected(view: cell, cellState: cellState)
+        //handleCellSelected(view: cell, cellState: cellState)
         handleCelltextColor(view: cell, cellState: cellState)
         return cell
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         //guard let validCell = cell as? calCell else {return}
-        print("DATE")
-        print(date)
-        //validCell.selectedView.isHidden = false
+        let dateMeds = getMedList(date: date)
         
-       // handleCellSelected(view: cell, cellState: cellState)
-        // handleCelltextColor(view: cell, cellState: cellState)
-        
-        
-        
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        //let timeString = formatter.string(from: startTime!)
-        let dateString = formatter.string(from: date)
-        print(dateString)
-        
-        let temp = profiles.filter {$0["timeSimple"] as! String == dateString}
-        print("FINAL DATE")
-        print(temp)
-        
-        
-         let dateMedController = DateMedController(collectionViewLayout: UICollectionViewFlowLayout())
-        dateMedController.dateMeds = temp
-        
+        let dateMedController = DateMedController(collectionViewLayout: UICollectionViewFlowLayout())
+        dateMedController.dateMeds = dateMeds
         self.navigationController?.pushViewController(dateMedController, animated: true)
-
-     
     }
-    
-    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-       // guard let validCell = cell as? calCell else {return}
-       // validCell.selectedView.isHidden = true
-        handleCellSelected(view: cell, cellState: cellState)
-         handleCelltextColor(view: cell, cellState: cellState)
-        
-        
-    }
-    
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
        setupViewsOfCalendar(from: visibleDates)

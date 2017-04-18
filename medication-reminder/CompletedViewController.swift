@@ -1,67 +1,62 @@
 //
-//  MissedViewController.swift
+//  CompletedViewController.swift
 //  medication-reminder
 //
-//  Created by Stanley Moon on 2017-04-16.
+//  Created by Stanley Moon on 2017-04-17.
 //  Copyright © 2017 Vikas Gandhi. All rights reserved.
 //
 
 import UIKit
 import SwiftyJSON
 
-class MissedController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class CompletedController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     var timer: Timer!
     var timer2: Timer!
     let cellId = "cellId"
     // var profiles = [Profile()]
     
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        defaultLabel.text = "There are no Missed Medication so far"
+        defaultLabel.text = "There are no Completed Medication so far"
         self.view.addSubview(defaultLabel)
-        view.addConstraintsWithFormat(format: "H:|-20-[v0]-|", views: defaultLabel )
+            view.addConstraintsWithFormat(format: "H:|-20-[v0]-|", views: defaultLabel )
         view.addConstraintsWithFormat(format: "V:|-100-[v0]-|", views: defaultLabel )
         
-        navigationItem.title = "Missed medication"
+        
+        navigationItem.title = "Completed medication"
         collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = UIColor.white
-        collectionView?.register(MissedCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView?.register(CompletedCell.self, forCellWithReuseIdentifier: cellId)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tabbarCounter = 0
-        tabBarController?.tabBar.items![2].badgeValue = nil
         //need to reloaddata if new medications were missed from ViewController
-        if(missed.count == 0){
+        
+        if (completed.count == 0){
             defaultLabel.isHidden = false
-        }else{
+        } else {
             defaultLabel.isHidden = true
         }
+       
         collectionView?.reloadData()
     }
+    
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        /*if (missed.count == 0){
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
-            label.textColor = UIColor.themeColor
-            label.center = self.view.center
-            label.textAlignment = .center
-            label.text = "There are no missed Medication so far"
-            self.collectionView?.addSubview(label)
-        }*/
-
-       return missed.count
+        
+        return completed.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let listCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MissedCell
-        
+        let listCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! CompletedCell
         listCell.layer.shouldRasterize = true;
         listCell.layer.rasterizationScale = UIScreen.main.scale
         listCell.layer.cornerRadius = 5
         listCell.layer.borderWidth = 1
         listCell.layer.borderColor = UIColor.themeColor.withAlphaComponent(0.6).cgColor
-        listCell.missed = missed[indexPath.row]
+        listCell.completed = completed[indexPath.row]
         listCell.backgroundColor = UIColor.white
-
+        
         return listCell
     }
     //cell's size. fixed height
@@ -73,39 +68,27 @@ class MissedController: UICollectionViewController, UICollectionViewDelegateFlow
         //top,left,bottom,right
         return UIEdgeInsetsMake(10, 0, 0, 0)
     }
-    
 }
 
 
-class MissedCell: UICollectionViewCell {
+class CompletedCell: UICollectionViewCell {
     
-    var missed = Med() {
+    var completed = CompletedMed() {
         didSet {
-            if let name = missed.name {
+            if let name = completed.name {
                 //let fullName = name + " " + (profile?.lastName)!
                 let attributedText = NSMutableAttributedString(string: name, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
                 
                 //set attrb for job title
-                if let dosage = missed.dosage {
+                if let dosage = completed.dosage {
                     attributedText.append(NSAttributedString(string: "\n\(dosage)", attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor(red: 155/255, green: 161/255, blue: 171/255, alpha:1) ] ))
                     
                 }
                 nameLabel.attributedText = attributedText
-                
             }
-            
-            //print(setNotif)
-            /*if let profileImageUrl = profile?.avatar{
-             // print(profileImageUrl)
-             let data = NSData(contentsOf: NSURL(string: profileImageUrl) as! URL)
-             profileImageView.image = UIImage(data: data as! Data)
-             }
-             
-             if let bio = profile?.{
-             let attributedText = NSMutableAttributedString(string: bio, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 13)])
-             bioTextView.attributedText = attributedText
-             }*/
-            
+            if let timeClicked = completed.timeClicked{
+                dateLabel.text = "Completed On: \(timeClicked)"
+            }
         }
     }
     
@@ -113,17 +96,13 @@ class MissedCell: UICollectionViewCell {
     override init(frame:CGRect) {
         super.init(frame:frame)
         setupView()
-        
     }
-    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     //init buttons, images, textview
-    
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -137,29 +116,24 @@ class MissedCell: UICollectionViewCell {
         return label
     } ()
     
-    let bioTextView: UILabel = {
-        let textView = UILabel()
-        textView.numberOfLines = 6
-        return textView
+    let dateLabel: UILabel = {
+        var label = UILabel()
+        //label.numberOfLines = 2
+        return label
     } ()
+    
+    
     
     func setupView() {
         backgroundColor = UIColor.white
         addSubview(nameLabel)
-        addSubview(profileImageView)
-        addSubview(bioTextView)
-        // addSubview(completeBtn)
+        addSubview(dateLabel)
         //constraints for label
-        addConstraintsWithFormat(format: "H:|-8-[v0(44)]-100-[v1]", views: profileImageView, nameLabel)
+        addConstraintsWithFormat(format: "H:|-8-[v0]-8-|", views: nameLabel)
+        addConstraintsWithFormat(format: "H:|-8-[v0]-8-|", views: dateLabel)
+      //  addConstraintsWithFormat(format: "V:|-12-[v0]", views: nameLabel)
         
-        // addConstraintsWithFormat(format: "H:|-4-[v0]-4-|", views: bioTextView)
-        
-        //addConstraintsWithFormat(format: "H:|-4-[v0(100)]-4-|", views: completeBtn)
-        
-        // addConstraintsWithFormat(format: "H:", views: completeBtn)
-        
-        addConstraintsWithFormat(format: "V:|-12-[v0]", views: nameLabel)
-        
+          addConstraintsWithFormat(format: "V:|-12-[v0]-10-[v1]-|", views: nameLabel, dateLabel)
         //addConstraintsWithFormat(format: "V:|-8-[v0(44)]-4-[v1(20)]", views: profileImageView, completeBtn)
         
         

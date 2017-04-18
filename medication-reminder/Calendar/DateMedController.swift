@@ -8,44 +8,50 @@
 
 import UIKit
 import SwiftyJSON
-import Alamofire
-//import UserNotifications
-
 
 class DateMedController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     var timer: Timer!
     var timer2: Timer!
     var date: Date!
     
-    let cellDate = "cellDate"
-    var dateMeds = [[String:Any]]()
+    let cellId = "cellId"
+    var dateMeds = [Med]()
     // var profiles = [Profile()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         navigationItem.title = " medication"
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = UIColor.white
-        collectionView?.register(DateCell.self, forCellWithReuseIdentifier: cellDate)
+        collectionView?.register(DateCell.self, forCellWithReuseIdentifier: cellId)
     }
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if (dateMeds.count == 0){
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
+            label.textColor = UIColor.themeColor
+            label.center = self.view.center
+            label.textAlignment = .center
+            label.text = "There are no scheduled Medication"
+            self.collectionView?.addSubview(label)
+        }
+
         return dateMeds.count
     }
     
     
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let listCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellDate, for: indexPath) as! DateCell
+        let listCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! DateCell
+        
         
         listCell.layer.shouldRasterize = true;
         listCell.layer.rasterizationScale = UIScreen.main.scale
         listCell.layer.cornerRadius = 5
         listCell.layer.borderWidth = 1
-        //listCell.layer.borderColor = UIColor.themeColor.withAlphaComponent(0.6).cgColor
+        listCell.layer.borderColor = UIColor.themeColor.withAlphaComponent(0.6).cgColor
         listCell.dateMed = dateMeds[indexPath.row]
         listCell.backgroundColor = UIColor.white
         listCell.myButton.isHidden = true
@@ -53,37 +59,30 @@ class DateMedController: UICollectionViewController, UICollectionViewDelegateFlo
         return listCell
     }
     
-    //cell touched, highlight
-    override func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        let listCell = collectionView.cellForItem(at: indexPath)
-        listCell?.contentView.backgroundColor = UIColor.lightGray
-    }
-    
-    //cell released, un-highlight
-    override func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        let listCell = collectionView.cellForItem(at: indexPath)
-        listCell?.contentView.backgroundColor = UIColor.white
-        
-    }
     
     //cell's size. fixed height
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         return CGSize(width: view.frame.width, height: 130)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        //top,left,bottom,right
+        return UIEdgeInsetsMake(10, 0, 0, 0)
+    }
 }
 
 
 class DateCell: UICollectionViewCell {
     
-    var dateMed: [String:Any]? {
+    var dateMed = Med() {
         didSet {
-            if let name = dateMed?["name"] {
+            if let name = dateMed.name {
                 //let fullName = name + " " + (profile?.lastName)!
-                let attributedText = NSMutableAttributedString(string: name as! String, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
+                let attributedText = NSMutableAttributedString(string: name, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
                 
                 //set attrb for job title
-                if let dosage = dateMed?["dosage"] {
+                if let dosage = dateMed.dosage {
                     attributedText.append(NSAttributedString(string: "\n\(dosage)", attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor(red: 155/255, green: 161/255, blue: 171/255, alpha:1) ] ))
                     
                 }
