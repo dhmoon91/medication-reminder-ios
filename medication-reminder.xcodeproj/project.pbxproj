@@ -11,7 +11,6 @@
 		5B485DE01E7C753D0013B925 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B485DDF1E7C753D0013B925 /* AppDelegate.swift */; };
 		5B485DE71E7C753D0013B925 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B485DE61E7C753D0013B925 /* Assets.xcassets */; };
 		5B485DEA1E7C753D0013B925 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B485DE81E7C753D0013B925 /* LaunchScreen.storyboard */; };
-		D30EC3491EA4BD86001B1421 /* alarm.caf in Resources */ = {isa = PBXBuildFile; fileRef = D30EC3481EA4BD79001B1421 /* alarm.caf */; };
 		D30EC34B1EA4DD46001B1421 /* CompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EC34A1EA4DD46001B1421 /* CompletedViewController.swift */; };
 		D3177DC91E9F61A300531EEE /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = D3177DC81E9F61A300531EEE /* test.json */; };
 		D3177DD71EA1582500531EEE /* calCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177DD61EA1582500531EEE /* calCell.swift */; };
@@ -31,7 +30,6 @@
 		5B485DE61E7C753D0013B925 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B485DE91E7C753D0013B925 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B485DEB1E7C753D0013B925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D30EC3481EA4BD79001B1421 /* alarm.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = alarm.caf; path = ../../alarm.caf; sourceTree = "<group>"; };
 		D30EC34A1EA4DD46001B1421 /* CompletedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedViewController.swift; sourceTree = "<group>"; };
 		D3177DC81E9F61A300531EEE /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		D3177DD61EA1582500531EEE /* calCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calCell.swift; sourceTree = "<group>"; };
@@ -41,6 +39,7 @@
 		D3177E071EA4159B00531EEE /* MissedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissedViewController.swift; sourceTree = "<group>"; };
 		D3177E091EA41A2E00531EEE /* GlobalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalModel.swift; sourceTree = "<group>"; };
 		D3177E0B1EA429F000531EEE /* DateMedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateMedController.swift; path = Calendar/DateMedController.swift; sourceTree = "<group>"; };
+		D3DE0A261EA65B8D00087775 /* alarm.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = alarm.caf; sourceTree = "<group>"; };
 		D3F84EAD1EA651B600A5FE14 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		D3F84EAE1EA651B600A5FE14 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D99A76BCD6251483082C59DD /* Pods_medication_reminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_medication_reminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,8 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				D3177E051EA1FF2500531EEE /* extension.swift */,
+				D3DE0A261EA65B8D00087775 /* alarm.caf */,
 				D3177E091EA41A2E00531EEE /* GlobalModel.swift */,
-				D30EC3481EA4BD79001B1421 /* alarm.caf */,
 				5B485DDF1E7C753D0013B925 /* AppDelegate.swift */,
 				5B485DE61E7C753D0013B925 /* Assets.xcassets */,
 				5B485DE81E7C753D0013B925 /* LaunchScreen.storyboard */,
@@ -205,7 +204,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D30EC3491EA4BD86001B1421 /* alarm.caf in Resources */,
 				5B485DEA1E7C753D0013B925 /* LaunchScreen.storyboard in Resources */,
 				D3177DC91E9F61A300531EEE /* test.json in Resources */,
 				D3177DFE1EA1FB7A00531EEE /* Calendar.storyboard in Resources */,
