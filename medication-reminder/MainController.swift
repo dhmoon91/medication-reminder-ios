@@ -111,7 +111,7 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
         let temp2 = dateFormat2.date(from: temp)
         
         var date2 = temp2!.addingTimeInterval(-300)
-        
+
         //Showing 'FINISHED' Button 5min before med time, change cell's background color to orange
         self.timerFiveBefore = Timer(fireAt: date2, interval: 0, target: self, selector: #selector(fiveMinuteBefore), userInfo: ["theButton": cell.myButton], repeats: false)
         
@@ -119,8 +119,8 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
         date2 = date2.addingTimeInterval(300)
         self.timerOnTime = Timer(fireAt: date2, interval: 0, target: self, selector: #selector(onTime), userInfo: nil, repeats: false)
         
-        //Removing cell to Missed 5min after medication time. Offset 5 second so user will get the loud notification
-        date2 = date2.addingTimeInterval(305)
+        //Removing cell to Missed 5min after medication time. Offset 10 second so user will get the loud notification
+        date2 = date2.addingTimeInterval(310)
         self.timerFiveAfter = Timer(fireAt: date2, interval: 0, target: self, selector: #selector(fiveMinuteAfter), userInfo: nil, repeats: false)
         
         //Add the timers
@@ -131,7 +131,6 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func fiveMinuteBefore (button: Bool) {
-        //print("TIME RUN RAN")
         let userInfo = timerFiveBefore.userInfo as! Dictionary<String, AnyObject>
         let button:UIButton = (userInfo["theButton"] as! UIButton)
         button.isHidden = false
@@ -143,13 +142,8 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
         timerFiveBefore.invalidate()
     }
     func onTime (button: Bool) {
-        //print("TIME run ran 2")
-      /*  let userInfo = timerOnTime.userInfo as! Dictionary<String, AnyObject>
-        let cell: ListCell = (userInfo["theCell"] as! ListCell )*/
         let indexPath = IndexPath(row: 0, section: 0)
         let cell = collectionView?.cellForItem(at: indexPath)
-        //cell.dateLabel.textColor = UIColor.white
-        //cell.nameLabel.textColor = UIColor.white
         cell?.backgroundColor = UIColor(red: 188/255.0, green: 70/255.0, blue: 52/255.0, alpha: 1.0)
         timerOnTime.invalidate()
     }
@@ -176,8 +170,6 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let listCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ListCell
-        //print(profiles[indexPath.row])
-       
         listCell.layer.shouldRasterize = true;
         listCell.layer.rasterizationScale = UIScreen.main.scale
         listCell.layer.cornerRadius = 5
@@ -206,11 +198,11 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
             var clickedTime = Date()
             clickedTime = clickedTime.addingTimeInterval(-14400)
             let clickedString = dateParseForLabel(forDate: clickedTime)
-            temp.name = meds[0].name
-            temp.dosage = meds[0].dosage
-            temp.completed = meds[0].completed
-            temp.time = meds[0].time
-            temp.timeParsed = meds[0].timeParsed
+            temp.name = self.todayMeds[0].name
+            temp.dosage = self.todayMeds[0].dosage
+            temp.completed = self.todayMeds[0].completed
+            temp.time = self.todayMeds[0].time
+            temp.timeParsed = self.todayMeds[0].timeParsed
             temp.timeClicked = clickedString
             
             completed.insert(temp, at: 0)
@@ -334,6 +326,7 @@ func scheduleNotification(at date: Date, id: String!, name: String!, dosage:Stri
     content2.title = "Medication Reminder"
     content2.body = "You Missed \(name!) with \(dosage!)! Please check Missed tab"
     content2.sound = UNNotificationSound(named: "alarm.caf")
+    
     let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
     let request2 = UNNotificationRequest(identifier: "\(id)a", content: content2, trigger: trigger2)
     

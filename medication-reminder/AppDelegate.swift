@@ -47,10 +47,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var tempMed = Med()
        
         if let url = URL(string: urlString)
-       // if let path = Bundle.main.path(forResource: "test", ofType:"json")
+       
         {
             do{
-                //let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+               
                 let data = try Data(contentsOf: url)
                 let jsonObj = JSON(data:data)
                 if jsonObj != JSON.null{
