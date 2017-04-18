@@ -14,8 +14,6 @@
 		D30EC3491EA4BD86001B1421 /* alarm.caf in Resources */ = {isa = PBXBuildFile; fileRef = D30EC3481EA4BD79001B1421 /* alarm.caf */; };
 		D30EC34B1EA4DD46001B1421 /* CompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EC34A1EA4DD46001B1421 /* CompletedViewController.swift */; };
 		D3177DC91E9F61A300531EEE /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = D3177DC81E9F61A300531EEE /* test.json */; };
-		D3177DD01E9F62DF00531EEE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177DCC1E9F62DF00531EEE /* TabBarController.swift */; };
-		D3177DD11E9F62DF00531EEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177DCD1E9F62DF00531EEE /* ViewController.swift */; };
 		D3177DD71EA1582500531EEE /* calCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177DD61EA1582500531EEE /* calCell.swift */; };
 		D3177DFE1EA1FB7A00531EEE /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3177DFB1EA1FB7A00531EEE /* Calendar.storyboard */; };
 		D3177E011EA1FC5400531EEE /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177E001EA1FC5400531EEE /* CalendarViewController.swift */; };
@@ -23,6 +21,8 @@
 		D3177E081EA4159B00531EEE /* MissedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177E071EA4159B00531EEE /* MissedViewController.swift */; };
 		D3177E0A1EA41A2E00531EEE /* GlobalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177E091EA41A2E00531EEE /* GlobalModel.swift */; };
 		D3177E0C1EA429F000531EEE /* DateMedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177E0B1EA429F000531EEE /* DateMedController.swift */; };
+		D3F84EAF1EA651B600A5FE14 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F84EAD1EA651B600A5FE14 /* MainController.swift */; };
+		D3F84EB01EA651B600A5FE14 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F84EAE1EA651B600A5FE14 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +34,6 @@
 		D30EC3481EA4BD79001B1421 /* alarm.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = alarm.caf; path = ../../alarm.caf; sourceTree = "<group>"; };
 		D30EC34A1EA4DD46001B1421 /* CompletedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedViewController.swift; sourceTree = "<group>"; };
 		D3177DC81E9F61A300531EEE /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
-		D3177DCC1E9F62DF00531EEE /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = ../../coffeeteam/coffeeteam/TabBarController.swift; sourceTree = "<group>"; };
-		D3177DCD1E9F62DF00531EEE /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../coffeeteam/coffeeteam/ViewController.swift; sourceTree = "<group>"; };
 		D3177DD61EA1582500531EEE /* calCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calCell.swift; sourceTree = "<group>"; };
 		D3177DFB1EA1FB7A00531EEE /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Calendar.storyboard; path = Calendar/Calendar.storyboard; sourceTree = "<group>"; };
 		D3177E001EA1FC5400531EEE /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -43,6 +41,8 @@
 		D3177E071EA4159B00531EEE /* MissedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissedViewController.swift; sourceTree = "<group>"; };
 		D3177E091EA41A2E00531EEE /* GlobalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalModel.swift; sourceTree = "<group>"; };
 		D3177E0B1EA429F000531EEE /* DateMedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateMedController.swift; path = Calendar/DateMedController.swift; sourceTree = "<group>"; };
+		D3F84EAD1EA651B600A5FE14 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		D3F84EAE1EA651B600A5FE14 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D99A76BCD6251483082C59DD /* Pods_medication_reminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_medication_reminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2C37ACF78442DAD71F24594 /* Pods-medication-reminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-medication-reminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-medication-reminder/Pods-medication-reminder.release.xcconfig"; sourceTree = "<group>"; };
 		FA4E7FE19B323FB4F24F169D /* Pods-medication-reminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-medication-reminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-medication-reminder/Pods-medication-reminder.debug.xcconfig"; sourceTree = "<group>"; };
@@ -81,8 +81,8 @@
 		5B485DDE1E7C753D0013B925 /* medication-reminder */ = {
 			isa = PBXGroup;
 			children = (
-				D3177DCC1E9F62DF00531EEE /* TabBarController.swift */,
-				D3177DCD1E9F62DF00531EEE /* ViewController.swift */,
+				D3F84EAD1EA651B600A5FE14 /* MainController.swift */,
+				D3F84EAE1EA651B600A5FE14 /* TabBarController.swift */,
 				D30EC34A1EA4DD46001B1421 /* CompletedViewController.swift */,
 				D3177E071EA4159B00531EEE /* MissedViewController.swift */,
 				D3177E021EA1FC8800531EEE /* Calendar */,
@@ -271,10 +271,10 @@
 				D3177E081EA4159B00531EEE /* MissedViewController.swift in Sources */,
 				D3177E0C1EA429F000531EEE /* DateMedController.swift in Sources */,
 				D3177E011EA1FC5400531EEE /* CalendarViewController.swift in Sources */,
+				D3F84EB01EA651B600A5FE14 /* TabBarController.swift in Sources */,
 				D3177DD71EA1582500531EEE /* calCell.swift in Sources */,
-				D3177DD11E9F62DF00531EEE /* ViewController.swift in Sources */,
+				D3F84EAF1EA651B600A5FE14 /* MainController.swift in Sources */,
 				D3177E061EA1FF2500531EEE /* extension.swift in Sources */,
-				D3177DD01E9F62DF00531EEE /* TabBarController.swift in Sources */,
 				D3177E0A1EA41A2E00531EEE /* GlobalModel.swift in Sources */,
 				D30EC34B1EA4DD46001B1421 /* CompletedViewController.swift in Sources */,
 				5B485DE01E7C753D0013B925 /* AppDelegate.swift in Sources */,
