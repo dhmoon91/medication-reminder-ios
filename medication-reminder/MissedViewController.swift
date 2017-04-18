@@ -40,20 +40,10 @@ class MissedController: UICollectionViewController, UICollectionViewDelegateFlow
         collectionView?.reloadData()
     }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        /*if (missed.count == 0){
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
-            label.textColor = UIColor.themeColor
-            label.center = self.view.center
-            label.textAlignment = .center
-            label.text = "There are no missed Medication so far"
-            self.collectionView?.addSubview(label)
-        }*/
-
        return missed.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let listCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MissedCell
-        
         listCell.layer.shouldRasterize = true;
         listCell.layer.rasterizationScale = UIScreen.main.scale
         listCell.layer.cornerRadius = 5

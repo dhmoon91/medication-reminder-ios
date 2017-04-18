@@ -31,8 +31,6 @@ class CompletedController: UICollectionViewController, UICollectionViewDelegateF
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //need to reloaddata if new medications were missed from ViewController
-        
         if (completed.count == 0){
             defaultLabel.isHidden = false
         } else {

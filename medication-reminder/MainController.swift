@@ -33,19 +33,15 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
         collectionView?.register(ListCell.self, forCellWithReuseIdentifier: cellId)
         UNUserNotificationCenter.current().delegate = self
         
-        //Query Meds data to get today's data. 
-        //if right now is 2017-04-16 10:00:00, get datas starting 10min diff
-        
+        //Singing timer to run at 11:54:00PM to get next day's medication list.
         let calendar = Calendar.current
         let now = Date()
         var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
-        
         components.hour = 23
         components.minute = 54
         components.second = 00
         
         let date = calendar.date(from:components)!
-        
         self.timerNewDay = Timer(fireAt: date, interval: 86400, target: self, selector: #selector(appendData), userInfo: nil, repeats: true)
         RunLoop.main.add(timerNewDay, forMode: RunLoopMode.commonModes)
     }
@@ -123,7 +119,7 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
         date2 = date2.addingTimeInterval(300)
         self.timerOnTime = Timer(fireAt: date2, interval: 0, target: self, selector: #selector(onTime), userInfo: nil, repeats: false)
         
-        //Removing cell to Missed 5min after medication time.
+        //Removing cell to Missed 5min after medication time. Offset 5 second so user will get the loud notification
         date2 = date2.addingTimeInterval(305)
         self.timerFiveAfter = Timer(fireAt: date2, interval: 0, target: self, selector: #selector(fiveMinuteAfter), userInfo: nil, repeats: false)
         
@@ -203,7 +199,7 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
         return listCell
     }
     func deleteCellCompleted(_ sender: UIButton) {
-        let alert = UIAlertController(title: NSLocalizedString("Have you treated patient with proper medication and dosage?", comment: "Alert View title on Settings page, when user wants to log out"), message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: NSLocalizedString("Have you treated patient with proper medication and dosage?", comment: "Alert View to confirm user has done their job"), message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title:"Yes", style: UIAlertActionStyle.default, handler:{
             action in
             var temp = CompletedMed()
@@ -331,12 +327,12 @@ func scheduleNotification(at date: Date, id: String!, name: String!, dosage:Stri
     
     let content = UNMutableNotificationContent()
     content.title = "Medication Reminder"
-    content.body = "Reminder; Now it's time for \(name!) with \(dosage!)"
+    content.body = "Reminder; Now it's time for \(name!) with amound of \(dosage!)"
     content.sound = UNNotificationSound.default()
     
     let content2 = UNMutableNotificationContent()
     content2.title = "Medication Reminder"
-    content2.body = "You Missed \(name!) with \(dosage!)! Please check 'Missed'"
+    content2.body = "You Missed \(name!) with \(dosage!)! Please check Missed tab"
     content2.sound = UNNotificationSound(named: "alarm.caf")
     let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
     let request2 = UNNotificationRequest(identifier: "\(id)a", content: content2, trigger: trigger2)
