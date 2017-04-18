@@ -16,7 +16,6 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
     var timerFiveAfter: Timer!
     
     var timerNewDay: Timer!
-    
     let cellId = "cellId"
     var todayMeds = [Med]()
     
@@ -40,49 +39,70 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
         let calendar = Calendar.current
         let now = Date()
         var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
-        /*components.day = components.day! + 1
-         components.hour = -4
-         components.minute = 0
-         components.second = 0*/
         
-        // components.day = components.day! + 1
-        // components.hour = 4
-        components.minute = 13
-        components.second = 30
+        components.hour = 23
+        components.minute = 54
+        components.second = 00
         
         let date = calendar.date(from:components)!
         
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let result = formatter.string(from: date)
-        
-        print("SHOULD GET 00;))")
-        print(result)
-        self.timerNewDay = Timer(fireAt: date, interval: 10, target: self, selector: #selector(getData), userInfo: nil, repeats: true)
+        self.timerNewDay = Timer(fireAt: date, interval: 86400, target: self, selector: #selector(appendData), userInfo: nil, repeats: true)
         RunLoop.main.add(timerNewDay, forMode: RunLoopMode.commonModes)
     }
     
     func getData () {
        //Get new today's data
         let today = Date()
-        todayMeds.append( contentsOf: getMedList(date: today) )
-        //todayMeds = meds
-       // todayMeds.append(contentsOf: meds)
-        self.collectionView?.reloadData()
-        /*for med in meds{
-            todayMeds.append(med)
-        }*/
-       
-       
+        let temp = getMedListToday(date: today)
+       // todayMeds.append( contentsOf:  )
+        todayMeds.append(contentsOf: temp)
     }
     func appendData () {
-        getData()
-        print("RAN TIMER")
-        //timerNewDay.invalidate()
+        print("Getting next day's data")
+        let calendar = Calendar.current
+        let tomorrow = Date()
+        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: tomorrow)
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        //new year
+        if (components.month == 12) {
+            if(components.day == 31){
+                components.year = components.year! + 1
+                components.month = 1
+                components.day = 1
+            }
+        }else {
+            switch components.month! {
+            case 1,3,5,7,8,10 :
+                if (components.day == 31) {
+                    components.month = components.month! + 1
+                    components.day = 1
+                }
+            case 4,6,9,7,11 :
+                if (components.day == 30) {
+                    components.month = components.month! + 1
+                    components.day = 1
+                }
+            case 2 :
+                if (components.day == 28) {
+                    components.month = components.month! + 1
+                    components.day = 1
+                }
+                
+            default:
+                 components.day = components.day! + 1
+            }
+        }
+        let tomorrowDate = calendar.date(from:components)!
+        let temp = getMedListToday(date: tomorrowDate)
+        todayMeds.append( contentsOf: temp)
+        self.collectionView?.reloadData()
     }
+    
     func triggerUI(at date: Date, for cell: ListCell){
-       //** Playing around with Time zone **//
+       
+        //** Playing around with Time zone **//
         //print(date)
         let dateformat = DateFormatter()
         dateformat.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -94,17 +114,17 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
         dateFormat2.timeZone = TimeZone(abbreviation: "EST")!
         let temp2 = dateFormat2.date(from: temp)
         
-        var date2 = temp2!.addingTimeInterval(-5)
+        var date2 = temp2!.addingTimeInterval(-300)
         
         //Showing 'FINISHED' Button 5min before med time, change cell's background color to orange
         self.timerFiveBefore = Timer(fireAt: date2, interval: 0, target: self, selector: #selector(fiveMinuteBefore), userInfo: ["theButton": cell.myButton], repeats: false)
         
         //Changing cell's background color to red at med time
-        date2 = date2.addingTimeInterval(5)
+        date2 = date2.addingTimeInterval(300)
         self.timerOnTime = Timer(fireAt: date2, interval: 0, target: self, selector: #selector(onTime), userInfo: nil, repeats: false)
         
         //Removing cell to Missed 5min after medication time.
-        date2 = date2.addingTimeInterval(60)
+        date2 = date2.addingTimeInterval(305)
         self.timerFiveAfter = Timer(fireAt: date2, interval: 0, target: self, selector: #selector(fiveMinuteAfter), userInfo: nil, repeats: false)
         
         //Add the timers
@@ -134,7 +154,7 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
         let cell = collectionView?.cellForItem(at: indexPath)
         //cell.dateLabel.textColor = UIColor.white
         //cell.nameLabel.textColor = UIColor.white
-        cell?.backgroundColor = UIColor(red: 209/255.0, green: 51/255.0, blue: 37/255.0, alpha: 1.0)
+        cell?.backgroundColor = UIColor(red: 188/255.0, green: 70/255.0, blue: 52/255.0, alpha: 1.0)
         timerOnTime.invalidate()
     }
     
@@ -303,7 +323,7 @@ func scheduleNotification(at date: Date, id: String!, name: String!, dosage:Stri
     //Time at med time
     let medTime = DateComponents(calendar: calendar, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
     //5min past med time
-    let fiveMedTime = DateComponents(calendar: calendar, month: components.month, day: components.day, hour: components.hour, minute: components.minute! + 1)
+    let fiveMedTime = DateComponents(calendar: calendar, month: components.month, day: components.day, hour: components.hour, minute: components.minute! + 5)
     
     let trigger = UNCalendarNotificationTrigger(dateMatching: medTime, repeats: false)
     let trigger2 = UNCalendarNotificationTrigger(dateMatching: fiveMedTime, repeats: false)

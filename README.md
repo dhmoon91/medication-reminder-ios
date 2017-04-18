@@ -1,3 +1,33 @@
+To run: 
+Clone or download the repo, 
+
+no need to pod install. pod files are included
+
+**IMPORTANT Note**
+1. open 'medication-reminder.xcworkspace' go to medication-reminder/etc/GlobalModel.swift, change 'localIp' to ip address of the machine which the server is running on.
+ e.g) If you are running the server on mac, go to 'Network Utility' -> Find IP Address under interface information, copy that to localIp variable
+
+2. If you are testing on actual device, device must be connected to same wifi network as of the machine running the server
+
+5 minute prior to medication time, 'Completed button' will be shown with yellow background
+![ScreenShot](/screenshots/5before.PNG)
+
+On medication time, there will be a chime sound notification sent and cell will be covered with reddish background
+![ScreenShot](/screenshots/ontime.PNG)
+
+5 minute after medication time, there will be annoying alarming notification sent adn data will be sent to 'Missed' controller. 
+Missed tab will show badge to notify user that there are missed medication: 
+![ScreenShot](/screenshots/after1.PNG)
+
+And on Missed tab, it will be shown as: 
+![ScreenShot](/screenshots/after2.PNG)
+
+If user has clicked on 'Complete' button before passing 5minute to medication time, 
+it will show alert view to double-confirm that user has done proper job and data will be sent to Completed tab
+
+Completed tab will have specific time constraint when the button was clicked;
+![ScreenShot](/screenshots/complete.PNG)
+
 Medication Reminder Sample App
 ==============================
 

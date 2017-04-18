@@ -12,6 +12,7 @@ import UIKit
 //******* DATAS *********//
 let localIp = "192.168.0.15"
 var tabbarCounter = 0
+let defaults = UserDefaults.standard
 
 struct Med {
     var id: String!

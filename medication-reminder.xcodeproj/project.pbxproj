@@ -20,6 +20,7 @@
 		D3177E081EA4159B00531EEE /* MissedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177E071EA4159B00531EEE /* MissedViewController.swift */; };
 		D3177E0A1EA41A2E00531EEE /* GlobalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177E091EA41A2E00531EEE /* GlobalModel.swift */; };
 		D3177E0C1EA429F000531EEE /* DateMedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3177E0B1EA429F000531EEE /* DateMedController.swift */; };
+		D3DE0A281EA65DAD00087775 /* alarm.caf in Resources */ = {isa = PBXBuildFile; fileRef = D3DE0A261EA65B8D00087775 /* alarm.caf */; };
 		D3F84EAF1EA651B600A5FE14 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F84EAD1EA651B600A5FE14 /* MainController.swift */; };
 		D3F84EB01EA651B600A5FE14 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F84EAE1EA651B600A5FE14 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
@@ -204,6 +205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3DE0A281EA65DAD00087775 /* alarm.caf in Resources */,
 				5B485DEA1E7C753D0013B925 /* LaunchScreen.storyboard in Resources */,
 				D3177DC91E9F61A300531EEE /* test.json in Resources */,
 				D3177DFE1EA1FB7A00531EEE /* Calendar.storyboard in Resources */,
