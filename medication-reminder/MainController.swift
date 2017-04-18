@@ -33,7 +33,7 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
         collectionView?.register(ListCell.self, forCellWithReuseIdentifier: cellId)
         UNUserNotificationCenter.current().delegate = self
         
-        //Singing timer to run at 11:54:00PM to get next day's medication list.
+        //Signing timer to run at 11:54:00PM to get next day's medication list.
         let calendar = Calendar.current
         let now = Date()
         var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
@@ -50,7 +50,6 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
        //Get new today's data
         let today = Date()
         let temp = getMedListToday(date: today)
-       // todayMeds.append( contentsOf:  )
         todayMeds.append(contentsOf: temp)
     }
     func appendData () {
@@ -99,7 +98,6 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
     func triggerUI(at date: Date, for cell: ListCell){
        
         //** Playing around with Time zone **//
-        //print(date)
         let dateformat = DateFormatter()
         dateformat.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateformat.timeZone = TimeZone(abbreviation:"GMT")!
@@ -214,16 +212,16 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             
             self.collectionView?.reloadData()
-            
         }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
-        
     }
+    
     //cell's size. fixed height
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 80)
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         //top,left,bottom,right
         return UIEdgeInsetsMake(10, 0, 0, 0)
@@ -250,17 +248,14 @@ class ListCell: UICollectionViewCell {
         }
     }
     
-    
     override init(frame:CGRect) {
         super.init(frame:frame)
         setupView()
-
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     //init buttons, images, textview
     let nameLabel: UILabel = {

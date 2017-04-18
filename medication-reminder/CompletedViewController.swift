@@ -122,7 +122,6 @@ class CompletedCell: UICollectionViewCell {
         return label
     } ()
     
-    
     func setupView() {
         backgroundColor = UIColor.white
         addSubview(nameLabel)

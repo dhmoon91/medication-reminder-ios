@@ -39,10 +39,6 @@ class TabBarController: UITabBarController {
        
         
         viewControllers = [navigationController, secondNavigationController, thirdNavigationController, fourthNavigationController]
-       // viewControllers = [navigationController]
-        
-       // tabBar.border
-       // tabBar.appearance().shadowImage =
         tabBar.isTranslucent = false
         //tabBar.clipsToBounds = true
     }

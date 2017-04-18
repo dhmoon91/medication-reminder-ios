@@ -6,6 +6,8 @@ no need to pod install. pod files are included
 open 'medication-reminder.xcworkspace' go to medication-reminder/etc/GlobalModel.swift, change 'localIp' to ip address of the machine which the server is running on.
  e.g) If you are running the server on mac, go to 'Network Utility' -> Find IP Address under interface information, copy that to localIp variable
 
+*Make sure the server is running on localhost.*
+
 **IMPORTANT NOTE**
 1. If you are testing on actual device, device must be connected to same wifi network as of the machine running the server
 2. Closing and re-opening the app will reset the datas 

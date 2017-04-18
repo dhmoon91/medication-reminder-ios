@@ -92,9 +92,7 @@ func getMedList(date: Date) -> [Med] {
     let dateString = convertDateToSimple(date: date)
     let temp = meds.filter {$0.timeSimple == dateString}
     return temp
-    
 }
-
 
 func getMedListToday(date: Date) -> [Med] {
     let date = date.addingTimeInterval(-14400)
@@ -110,7 +108,6 @@ func getMedListToday(date: Date) -> [Med] {
     let todayMeds = tempMeds.filter({$0.timeParsed > dateString2!})
     
     return todayMeds
-    
 }
 
 

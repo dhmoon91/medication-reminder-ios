@@ -27,7 +27,6 @@ class DateMedController: UICollectionViewController, UICollectionViewDelegateFlo
         collectionView?.register(DateCell.self, forCellWithReuseIdentifier: cellId)
     }
     
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (dateMeds.count == 0){
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
@@ -37,16 +36,11 @@ class DateMedController: UICollectionViewController, UICollectionViewDelegateFlo
             label.text = "There are no scheduled Medication"
             self.collectionView?.addSubview(label)
         }
-
         return dateMeds.count
     }
     
-    
-    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let listCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! DateCell
-        
-        
         listCell.layer.shouldRasterize = true;
         listCell.layer.rasterizationScale = UIScreen.main.scale
         listCell.layer.cornerRadius = 5
@@ -61,7 +55,6 @@ class DateMedController: UICollectionViewController, UICollectionViewDelegateFlo
     
     //cell's size. fixed height
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         return CGSize(width: view.frame.width, height: 80)
     }
     
@@ -91,18 +84,15 @@ class DateCell: UICollectionViewCell {
         }
     }
     
-    
     override init(frame:CGRect) {
         super.init(frame:frame)
         setupView()
     }
     
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
+
     //init buttons, images, textview
     let nameLabel: UILabel = {
         var label = UILabel()
@@ -114,7 +104,6 @@ class DateCell: UICollectionViewCell {
         var label = UILabel()
         return label
     } ()
-    
     
     func setupView() {
         backgroundColor = UIColor.white
