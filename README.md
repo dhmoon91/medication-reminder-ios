@@ -10,9 +10,9 @@ no need to pod install. pod files are included
 2. If you are testing on actual device, device must be connected to same wifi network as of the machine running the server
 
 5 minute prior to medication time, 'Completed button' will be shown with yellow background
-<br>
+
 <img  src = "/screenshots/5before.png" align="left" height="700" width="400" />
-<br>
+
 
 On medication time, there will be a chime sound notification sent and cell will be covered with reddish background
 ![ScreenShot](/screenshots/ontime.png)
