@@ -304,9 +304,9 @@ func scheduleNotification(at date: Date, id: String!, name: String!, dosage:Stri
     let components = calendar.dateComponents(in: TimeZone(abbreviation:"GMT")!, from: date)
 
     //Time at med time
-    let medTime = DateComponents(calendar: calendar, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
+    let medTime = DateComponents(calendar: calendar, month: components.month, day: components.day, hour: components.hour, minute: components.minute, second: components.second)
     //5min past med time
-    let fiveMedTime = DateComponents(calendar: calendar, month: components.month, day: components.day, hour: components.hour, minute: components.minute! + 5)
+    let fiveMedTime = DateComponents(calendar: calendar, month: components.month, day: components.day, hour: components.hour, minute: components.minute! + 5, second: components.second)
     
     let trigger = UNCalendarNotificationTrigger(dateMatching: medTime, repeats: false)
     let trigger2 = UNCalendarNotificationTrigger(dateMatching: fiveMedTime, repeats: false)
