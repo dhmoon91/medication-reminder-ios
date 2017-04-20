@@ -70,9 +70,12 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalCell", for: indexPath) as! calCell
         cell.dateLabel.text = cellState.text
         cell.selectedView.isHidden = true
-        let todaySimple = convertDateToSimple(date: Date())
         let dateString = convertDateToSimple(date:date)
-
+        
+        var datetemp = Date()
+        datetemp.addTimeInterval(-14400)
+        let todaySimple = convertDateToSimple(date: datetemp)
+        
         //Highlight today
         if (todaySimple == dateString){
             cell.selectedView.isHidden = false
